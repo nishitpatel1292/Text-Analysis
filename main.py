@@ -26,7 +26,7 @@ swagger_config = {
     ],
     "title": 'Text Analysis',  # This is the title that will appear
     "version": '0.0.1',
-    "description": 'Description of your API',
+    "description": 'This Web API utilizes Natural Language Processing (NLP) techniques for sentiment analysis, topic detection, and keyword cloud generation. \n Developed by VarChar Solutions Pvt. Ltd.',
     "termsOfService": 'TOS',
     "static_url_path": "/flasgger_static",
     "swagger_ui": True,
