@@ -1,7 +1,6 @@
 import gensim
 from gensim.utils import simple_preprocess
 from gensim.models import LdaModel
-from gensim.models import Phrases
 from nltk.corpus import stopwords
 
 class TopicDetection:

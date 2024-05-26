@@ -53,7 +53,7 @@ def analyze_sentiment():
         in: query
         type: integer
         required: false
-        default: 10000
+        default: 1000
         description: Size of the chunk.
 
     responses:
@@ -64,7 +64,7 @@ def analyze_sentiment():
         return jsonify({'error': 'No file part in the request'}), 400
 
     file = request.files['file']
-    chunk_size = int(request.args.get('chunk_size', 10000))
+    chunk_size = int(request.args.get('chunk_size', 1000))
 
     if file.filename == '':
         return jsonify({'error': 'No file selected for uploading'}), 400
@@ -99,7 +99,7 @@ def generate_keywords():
         in: query
         type: integer
         required: false
-        default: 10000
+        default: 1000
         description: Size of the chunk.
       - name: generate_picture
         in: query
@@ -132,7 +132,7 @@ def generate_keywords():
 
     # handling parameters 
     max_words = int(request.args.get('max_words', 40))
-    chunk_size = int(request.args.get('chunk_size', 10000))
+    chunk_size = int(request.args.get('chunk_size', 1000))
     generate_picture = request.args.get('generate_picture', 'false').lower() == 'true'
 
     words = generator.generate_keyword_cloud(file_path, max_words, chunk_size)
@@ -159,7 +159,7 @@ def topic_detection():
         in: query
         type: integer
         required: false
-        default: 10000
+        default: 1000
         description: Size of the chunk.
 
     responses:
@@ -174,7 +174,7 @@ def topic_detection():
     if file.filename == '':
         return jsonify({'error': 'No file selected for uploading'}), 400
 
-    chunk_size = int(request.args.get('chunk_size', 10000))
+    chunk_size = int(request.args.get('chunk_size', 1000))
     
     filename = secure_filename(file.filename)
 

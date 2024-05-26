@@ -8,7 +8,7 @@ class SentimentAnalyzer:
     def __init__(self):
         self.sia = SentimentIntensityAnalyzer()
 
-    def generate_sentiment_analysis(self, file_path, chunk_size=10000):
+    def generate_sentiment_analysis(self, file_path, chunk_size):
         sentiment_scores = {
             "pos": 0,
             "neg": 0,
@@ -41,7 +41,7 @@ class SentimentAnalyzer:
             sentiment_scores[key] /= total_chunks
         return sentiment_scores
 
-    def analyze_sentiment(self, file_path, chunk_size):
+    def analyze_sentiment(self, file_path, chunk_size=1000):
         sentiment_scores = self.generate_sentiment_analysis(file_path, chunk_size)
         output = {}
         if sentiment_scores["compound"] > 0.05:
@@ -61,5 +61,6 @@ if __name__ == '__main__':
     print("Sentiment Analysis Results:")
     file_path = "test.txt"
     analyzer_obj = SentimentAnalyzer()
-    sentiment_scores = analyzer_obj.analyze_sentiment(file_path)
+    sentiment_scores = analyzer_obj.analyze_sentiment(file_path, 1000)
+    print(sentiment_scores)
 
