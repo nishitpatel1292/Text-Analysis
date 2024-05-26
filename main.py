@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 nltk.download('punkt')
 nltk.download('stopwords')
-nltk.download('vader-lexicon')
+nltk.download('vader_lexicon')
 swagger_config = {
     "headers": [],
     "specs": [
