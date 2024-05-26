@@ -6,10 +6,13 @@ from Keyword_cloud_generator import KeywordGenerator
 from topic_detection import TopicDetection
 import uuid
 from flasgger import Swagger
+import nltk
 # from config import swagger_config
 
 app = Flask(__name__)
 
+nltk.download('punkt')
+nltk.download('stopwords')
 swagger_config = {
     "headers": [],
     "specs": [
